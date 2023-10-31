@@ -2,13 +2,13 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './user/user.module';
 import { SqliteConnectionOptions } from 'typeorm/driver/sqlite/SqliteConnectionOptions';
-import { User } from './user/user.model';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserEntity } from './user/entity/user.entity';
 
 const config: SqliteConnectionOptions = {
   type: 'sqlite',
   database: './db/sqlite.db',
-  entities: [User],
+  entities: [UserEntity],
   synchronize: true,
 };
 
