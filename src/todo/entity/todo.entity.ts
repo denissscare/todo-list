@@ -1,9 +1,7 @@
-import { type } from "os";
-import { UserEntity } from "src/user/entity/user.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { UserEntity } from 'src/user/entity/user.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
-
-@Entity("todos")
+@Entity('todos')
 export class TodoEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -14,6 +12,6 @@ export class TodoEntity {
   @Column()
   description?: string;
 
-  @ManyToOne(type => UserEntity)
+  @ManyToOne((type) => UserEntity)
   userID: number;
 }
