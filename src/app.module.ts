@@ -5,6 +5,7 @@ import { SqliteConnectionOptions } from 'typeorm/driver/sqlite/SqliteConnectionO
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from './user/entity/user.entity';
 import { TodoModule } from './todo/todo.module';
+import { TaskModule } from './task/task.module';
 
 const config: SqliteConnectionOptions = {
   type: 'sqlite',
@@ -21,6 +22,7 @@ const config: SqliteConnectionOptions = {
     TypeOrmModule.forRoot(config),
     UserModule,
     TodoModule,
+    TaskModule,
   ],
   controllers: [],
   providers: [],
