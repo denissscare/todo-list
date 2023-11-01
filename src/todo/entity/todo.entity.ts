@@ -1,8 +1,16 @@
 import { UserEntity } from 'src/user/entity/user.entity';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { TaskEntity } from '../../task/entity/task.entity';
 
 @Entity('todos')
-export class TodoEntity {
+export class TodoEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -12,6 +20,9 @@ export class TodoEntity {
   @Column()
   description?: string;
 
-  @ManyToOne((type) => UserEntity)
+  @ManyToOne(() => UserEntity)
   userID: number;
+
+  @OneToMany(() => TaskEntity, (task) => task.list)
+  tasks: TaskEntity[];
 }
