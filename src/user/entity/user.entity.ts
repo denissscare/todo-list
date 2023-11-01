@@ -12,10 +12,10 @@ export class UserEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ type: String, unique: true, nullable: true })
   email: string;
 
-  @Column()
+  @Column({ type: String, nullable: true })
   password: string;
 
   @BeforeInsert()
