@@ -21,8 +21,8 @@ export class TodoEntity extends BaseEntity {
   description?: string;
 
   @ManyToOne(() => UserEntity)
-  userID: number;
+  owner?: UserEntity;
 
   @OneToMany(() => TaskEntity, (task) => task.list)
-  tasks: TaskEntity[];
+  tasks?: TaskEntity[];
 }
